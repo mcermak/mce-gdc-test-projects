@@ -44,7 +44,8 @@
             "populates" : [
                "l_pers.bn"
             ],
-            "mode" : "FULL"
+            "mode" : "FULL",
+            "referenceKey" : 1
          },
          {
             "columnName" : "tab_pers.col_fn",
@@ -58,8 +59,7 @@
             "populates" : [
                "l_pers.surname"
             ],
-            "mode" : "FULL",
-	"referenceKey" : 1
+            "mode" : "FULL"
          }
       ],
       "file" : "invoice.csv",
