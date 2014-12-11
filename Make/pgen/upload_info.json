@@ -1,0 +1,23 @@
+{
+   "dataSetSLIManifest" : {
+      "parts" : [
+         {
+            "columnName" : "tab_$b.col_$f",
+            "populates" : [
+               "fact.$f"
+            ],
+            "mode" : "INCREMENTAL"
+         },
+         {
+            "columnName" : "tab_$a.col_name",
+            "populates" : [
+               "l_$a.name"
+            ],
+            "mode" : "INCREMENTAL",
+            "referenceKey" : 1
+         }
+      ],
+      "file" : "$a.csv",
+      "dataSet" : "dataset.$a"
+   }
+}

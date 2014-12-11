@@ -1,0 +1,22 @@
+# Dataset $A ---------------------------------------------------------------------
+CREATE ATTRIBUTE {attr.$a} VISUAL(TITLE "attr:$a")
+        AS KEYS {tab_$a.col_id} PRIMARY, {tab_$i.col_fk_$a}
+        WITH LABELS {l_$a.name} VISUAL(TITLE "label:name") AS {tab_$a.col_name};
+
+CREATE ATTRIBUTE {attr.$b} VISUAL(TITLE "attr:$b")
+        AS KEYS {tab_$b.col_id} PRIMARY;
+
+
+CREATE FACT {fact.$f} VISUAL(TITLE "fact:$f") AS {tab_$b.col_$a};
+
+CREATE DATASET {dataset.$a} VISUAL( TITLE "dataset:$a" );
+
+ALTER DATASET {dataset.$a}
+        ADD {attr.$a},
+        {attr.$b}, {fact.$f};
+
+ALTER DATATYPE
+        {tab_$a.col_id} INT, {tab_$a.col_name} VARCHAR(32),
+        {tab_$b.col_id} INT;
+
+SYNCHRONIZE {dataset.$a};
