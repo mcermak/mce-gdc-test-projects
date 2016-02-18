@@ -1,0 +1,26 @@
+{
+   "dataSetSLIManifest" : {
+      "parts" : [
+         {
+            "columnName" : "tab_f.col_sn",
+            "populates" : [
+               "fact.some_number"
+            ],
+            "mode" : "FULL"
+         },
+         {
+            "columnName" : "tab_f.date_id",
+            "populates" : [
+               "dt_some_number.date.mmddyyyy"
+            ],
+            "constraints" : {
+               "date" : "yyyy-MM-dd"
+            },
+            "mode" : "FULL",
+            "referenceKey" : 1
+         }
+      ],
+      "file" : "dataset.d.csv",
+      "dataSet" : "dataset.d"
+   }
+}

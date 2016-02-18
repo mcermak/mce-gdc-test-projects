@@ -1,0 +1,12 @@
+CREATE ATTRIBUTE {attr.f} VISUAL(TITLE "attr:F") AS KEYS {tab_f.col_id} PRIMARY;
+CREATE FACT {fact.some_number} VISUAL(TITLE "fact:Some Number") AS {tab_f.col_sn};
+CREATE DATASET {dataset.d} VISUAL( TITLE "dataset:D" );
+
+ALTER DATASET {dataset.d} ADD {attr.f}, {fact.some_number};
+
+ALTER DATATYPE {tab_f.col_id} INT;
+
+INCLUDE TEMPLATE "URN:GOODDATA:DATE" MODIFY (IDENTIFIER "dt_some_number", TITLE "templ:DateSumNumber");
+ALTER ATTRIBUTE {dt_some_number.date} ADD KEYS {tab_f.date_id};
+
+SYNCHRONIZE {dataset.d};
