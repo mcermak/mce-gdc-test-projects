@@ -5,7 +5,6 @@ use warnings;
 use utf8;
 
 use DateTime;
-use constant GEN_ROWS => 10_000_000;
 #===============================================================================
 my $names;
 foreach my $fname (qw/firstnames surnames/) {
@@ -14,6 +13,9 @@ foreach my $fname (qw/firstnames surnames/) {
 	$names->{$fname} = [ map { chomp $_; $_ } @names ];
 	close($f_names);
 }
+
+my @surnames = @{$names->{surnames}};
+my @names = @{$names->{firstnames}};
 
 sub date_gen {
 	my $scale = shift;
@@ -28,15 +30,11 @@ sub date_gen {
 sub gen_name {
 	my $names = shift;
 
-	my @surnames = @{$names->{surnames}};
-	my @names = @{$names->{firstnames}};
-
 	return (
 		$names[int(rand(scalar @names))],
 		$surnames[int(rand(scalar @surnames))]
 	);
 }
-
 
 my $size = $ARGV[1];
 my $start = $ARGV[0];
