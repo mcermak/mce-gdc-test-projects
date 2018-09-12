@@ -1,6 +1,6 @@
 # Dataset $A ---------------------------------------------------------------------
 CREATE ATTRIBUTE {attr.$a} VISUAL(TITLE "attr:$a")
-        AS KEYS {tab_$a.col_id} PRIMARY, {tab_$i.col_fk_$a}
+        AS KEYS {tab_$a.col_id} PRIMARY, {tab_$b.col_fk_$a}
         WITH LABELS {l_$a.name} VISUAL(TITLE "label:name") AS {tab_$a.col_name};
 
 CREATE ATTRIBUTE {attr.$b} VISUAL(TITLE "attr:$b")
