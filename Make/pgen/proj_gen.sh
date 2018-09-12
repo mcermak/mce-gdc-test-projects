@@ -1,7 +1,6 @@
 #!/bin/bash
 rm -f result/*
 
-DEF=$1;
-if ($DEF) then DEF=1; fi;
+DEF=${1:-1}
 
-perl regen.pm result/ maql.txt upload_info.json pattern.csv $DEF
+perl regen.pm result/ maql.txt upload_info.json pattern.csv "$DEF"
